@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<div class="container-fluid background_img  ">
+  <div class="row  ">
+    <div class="col-12 text-center p-2 ">
+      <h2 class="text-light font-weight-bold font-italic order-2" style="font-family: 'Gentium Book Basic', serif;">
+        <u>CHAPTER 01</u> </h2>
+      <h2 class="order-1 ">SIGN UP</h2>
+
+    </div>
+    <div class="col-12">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+        <div class="alert alert-warning" role="alert">
+          <li>{{ message }}</li>
+        </div>
+
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class=" col-lg-5 col-12 mt-3 ">
+
+      <form action="{{url_for('joinUs')}}" method="POST">
+
+        <div class="form-group has-warning">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control form-control-sm  " d="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Enter email" required>
+        </div>
+        <div class="form-group ">
+          <label for="password">Password</label>
+          <input type="password" name="userPassword" onkeyup="check()" class="form-control form-control-sm  "
+            id="password" placeholder="New Password" required>
+        </div>
+        <div class="form-group ">
+          <label for="confirmPasssWord">Confirm password</label>
+          <input type="password" name="confirmPasssWord" onkeyup="check()" class="form-control form-control-sm  "
+            id="confirmPasssWord" placeholder="Confirm PasssWord" required>
+          <span id="confirm-message1" class="confirm-message " hidden><img
+              src="{{url_for('static',filename='images/right_icon.jpg')}}" alt="Passwords Match!" width="20">Passwords
+            Match!</span>
+          <span id="confirm-message2" class="confirm-message " hidden><img
+              src="{{url_for('static',filename='images/false-icon.png')}}" alt="Passwords do not Match!"
+              width="20">Passwords do not Match!</span>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary " id="buttonSubmit" disabled>Submit</button>
+        </div>
+      </form>
+      <br>
+    </div>
+     </div>
+</div>
+</div>
+
+{% endblock %}

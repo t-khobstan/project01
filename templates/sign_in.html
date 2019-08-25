@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container-fluid background_img  ">
+  <div class="row  ">
+    <div class="col-12 text-center p-2 ">
+      <h2 class="text-light font-weight-bold font-italic order-2" style="font-family: 'Gentium Book Basic', serif;">
+        <u>CHAPTER 01</u> </h2>
+      <h2 class="order-1  ">SIGN IN</h2>
+
+    </div>
+    <div class="col-12">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+          <li>{{ message }}</li>
+        </div>
+
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class=" col-lg-5 col-12 mt-3 ">
+
+      <form action="{{url_for('signIn')}}" method="POST">
+
+        <div class="form-group has-warning">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="signInEmail" class="form-control form-control-sm  " d="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Enter email" required>
+        </div>
+        <div class="form-group ">
+          <label for="password">Password</label>
+          <input type="password" name="signInPassword" class="form-control form-control-sm  " id="password"
+            placeholder="New Password" required>
+        </div>
+        <div>
+
+          <button type="submit" class="btn btn-primary " id="buttonSubmit">Submit</button>
+        </div>
+      </form>
+      <br>
+
+    </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

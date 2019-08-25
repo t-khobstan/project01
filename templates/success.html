@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-3 p-4">
+            <h2 class="text-success">Congratulation</h2>
+            <h3 class="text-center">{{message}} <a href="{{url_for('signIn')}}">Sign in</a> Now</h3>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{% block footer %}
+{% endblock %}
